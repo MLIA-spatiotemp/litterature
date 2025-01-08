@@ -1,0 +1,80 @@
+@online{Alkin2024_UniversalPhysicsTransformers,
+  title = {Universal {{Physics Transformers}}: {{A Framework For Efficiently Scaling Neural Operators}}},
+  shorttitle = {Universal {{Physics Transformers}}},
+  author = {Alkin, Benedikt and Fürst, Andreas and Schmid, Simon and Gruber, Lukas and Holzleitner, Markus and Brandstetter, Johannes},
+  date = {2024-10-10},
+  eprint = {2402.12365},
+  eprinttype = {arxiv},
+  doi = {10.48550/arXiv.2402.12365},
+  url = {http://arxiv.org/abs/2402.12365},
+  urldate = {2024-11-12},
+  abstract = {Neural operators, serving as physics surrogate models, have recently gained increased interest. With ever increasing problem complexity, the natural question arises: what is an efficient way to scale neural operators to larger and more complex simulations - most importantly by taking into account different types of simulation datasets. This is of special interest since, akin to their numerical counterparts, different techniques are used across applications, even if the underlying dynamics of the systems are similar. Whereas the flexibility of transformers has enabled unified architectures across domains, neural operators mostly follow a problem specific design, where GNNs are commonly used for Lagrangian simulations and grid-based models predominate Eulerian simulations. We introduce Universal Physics Transformers (UPTs), an efficient and unified learning paradigm for a wide range of spatio-temporal problems. UPTs operate without grid- or particle-based latent structures, enabling flexibility and scalability across meshes and particles. UPTs efficiently propagate dynamics in the latent space, emphasized by inverse encoding and decoding techniques. Finally, UPTs allow for queries of the latent space representation at any point in space-time. We demonstrate diverse applicability and efficacy of UPTs in mesh-based fluid simulations, and steady-state Reynolds averaged Navier-Stokes simulations, and Lagrangian-based dynamics.},
+  pubstate = {preprint}
+}
+
+@online{Hao2024_DPOTAutoRegressiveDenoising,
+  title = {{{DPOT}}: {{Auto-Regressive Denoising Operator Transformer}} for {{Large-Scale PDE Pre-Training}}},
+  shorttitle = {{{DPOT}}},
+  author = {Hao, Zhongkai and Su, Chang and Liu, Songming and Berner, Julius and Ying, Chengyang and Su, Hang and Anandkumar, Anima and Song, Jian and Zhu, Jun},
+  date = {2024-03-06},
+  url = {https://arxiv.org/abs/2403.03542v4},
+  urldate = {2024-06-21},
+  abstract = {Pre-training has been investigated to improve the efficiency and performance of training neural operators in data-scarce settings. However, it is largely in its infancy due to the inherent complexity and diversity, such as long trajectories, multiple scales and varying dimensions of partial differential equations (PDEs) data. In this paper, we present a new auto-regressive denoising pre-training strategy, which allows for more stable and efficient pre-training on PDE data and generalizes to various downstream tasks. Moreover, by designing a flexible and scalable model architecture based on Fourier attention, we can easily scale up the model for large-scale pre-training. We train our PDE foundation model with up to 0.5B parameters on 10+ PDE datasets with more than 100k trajectories. Extensive experiments show that we achieve SOTA on these benchmarks and validate the strong generalizability of our model to significantly enhance performance on diverse downstream PDE tasks like 3D data. Code is available at \textbackslash url\{https://github.com/thu-ml/DPOT\}.},
+  langid = {english},
+  organization = {{arXiv.org}}
+}
+
+@online{Herde2024_PoseidonEfficientFoundation,
+  title = {Poseidon: {{Efficient Foundation Models}} for {{PDEs}}},
+  shorttitle = {Poseidon},
+  author = {Herde, Maximilian and Raonić, Bogdan and Rohner, Tobias and Käppeli, Roger and Molinaro, Roberto and family=Bézenac, given=Emmanuel, prefix=de, useprefix=false and Mishra, Siddhartha},
+  date = {2024-11-05},
+  eprint = {2405.19101},
+  eprinttype = {arxiv},
+  doi = {10.48550/arXiv.2405.19101},
+  url = {http://arxiv.org/abs/2405.19101},
+  urldate = {2024-11-12},
+  abstract = {We introduce Poseidon, a foundation model for learning the solution operators of PDEs. It is based on a multiscale operator transformer, with time-conditioned layer norms that enable continuous-in-time evaluations. A novel training strategy leveraging the semi-group property of time-dependent PDEs to allow for significant scaling-up of the training data is also proposed. Poseidon is pretrained on a diverse, large scale dataset for the governing equations of fluid dynamics. It is then evaluated on a suite of 15 challenging downstream tasks that include a wide variety of PDE types and operators. We show that Poseidon exhibits excellent performance across the board by outperforming baselines significantly, both in terms of sample efficiency and accuracy. Poseidon also generalizes very well to new physics that is not seen during pretraining. Moreover, Poseidon scales with respect to model and data size, both for pretraining and for downstream tasks. Taken together, our results showcase the surprising ability of Poseidon to learn effective representations from a very small set of PDEs during pretraining in order to generalize well to unseen and unrelated PDEs downstream, demonstrating its potential as an effective, general purpose PDE foundation model. Finally, the Poseidon model as well as underlying pretraining and downstream datasets are open sourced, with code being available at https://github.com/camlab-ethz/poseidon and pretrained models and datasets at https://huggingface.co/camlab-ethz.},
+  pubstate = {preprint}
+}
+
+@online{McCabe2023_MultiplePhysicsPretraining,
+  title = {Multiple {{Physics Pretraining}} for {{Physical Surrogate Models}}},
+  author = {McCabe, Michael and Blancard, Bruno Régaldo-Saint and Parker, Liam Holden and Ohana, Ruben and Cranmer, Miles and Bietti, Alberto and Eickenberg, Michael and Golkar, Siavash and Krawezik, Geraud and Lanusse, Francois and Pettee, Mariel and Tesileanu, Tiberiu and Cho, Kyunghyun and Ho, Shirley},
+  date = {2023-10-04},
+  eprint = {2310.02994},
+  eprinttype = {arxiv},
+  doi = {10.48550/arXiv.2310.02994},
+  url = {http://arxiv.org/abs/2310.02994},
+  urldate = {2024-11-12},
+  abstract = {We introduce multiple physics pretraining (MPP), an autoregressive task-agnostic pretraining approach for physical surrogate modeling. MPP involves training large surrogate models to predict the dynamics of multiple heterogeneous physical systems simultaneously by learning features that are broadly useful across diverse physical tasks. In order to learn effectively in this setting, we introduce a shared embedding and normalization strategy that projects the fields of multiple systems into a single shared embedding space. We validate the efficacy of our approach on both pretraining and downstream tasks over a broad fluid mechanics-oriented benchmark. We show that a single MPP-pretrained transformer is able to match or outperform task-specific baselines on all pretraining sub-tasks without the need for finetuning. For downstream tasks, we demonstrate that finetuning MPP-trained models results in more accurate predictions across multiple time-steps on new physics compared to training from scratch or finetuning pretrained video foundation models. We open-source our code and model weights trained at multiple scales for reproducibility and community experimentation.},
+  pubstate = {preprint}
+}
+
+@online{Shen2024_UPSEfficientlyBuilding,
+  title = {{{UPS}}: {{Efficiently Building Foundation Models}} for {{PDE Solving}} via {{Cross-Modal Adaptation}}},
+  shorttitle = {{{UPS}}},
+  author = {Shen, Junhong and Marwah, Tanya and Talwalkar, Ameet},
+  date = {2024-07-31},
+  eprint = {2403.07187},
+  eprinttype = {arxiv},
+  doi = {10.48550/arXiv.2403.07187},
+  url = {http://arxiv.org/abs/2403.07187},
+  urldate = {2024-11-12},
+  abstract = {We present Unified PDE Solvers (UPS), a data- and compute-efficient approach to developing unified neural operators for diverse families of spatiotemporal PDEs from various domains, dimensions, and resolutions. UPS embeds different PDEs into a shared representation space and processes them using a FNO-transformer architecture. Rather than training the network from scratch, which is data-demanding and computationally expensive, we warm-start the transformer from pretrained LLMs and perform explicit alignment to reduce the modality gap while improving data and compute efficiency. The cross-modal UPS achieves state-of-the-art results on a wide range of 1D and 2D PDE families from PDEBench, outperforming existing unified models using 4 times less data and 26 times less compute. Meanwhile, it is capable of few-shot transfer to unseen PDE families and coefficients.},
+  pubstate = {preprint}
+}
+
+@online{Subramanian2023_FoundationModelsScientific,
+  title = {Towards {{Foundation Models}} for {{Scientific Machine Learning}}: {{Characterizing Scaling}} and {{Transfer Behavior}}},
+  shorttitle = {Towards {{Foundation Models}} for {{Scientific Machine Learning}}},
+  author = {Subramanian, Shashank and Harrington, Peter and Keutzer, Kurt and Bhimji, Wahid and Morozov, Dmitriy and Mahoney, Michael and Gholami, Amir},
+  date = {2023-06-01},
+  eprint = {2306.00258},
+  eprinttype = {arxiv},
+  doi = {10.48550/arXiv.2306.00258},
+  url = {http://arxiv.org/abs/2306.00258},
+  urldate = {2024-11-12},
+  abstract = {Pre-trained machine learning (ML) models have shown great performance for a wide range of applications, in particular in natural language processing (NLP) and computer vision (CV). Here, we study how pre-training could be used for scientific machine learning (SciML) applications, specifically in the context of transfer learning. We study the transfer behavior of these models as (i) the pre-trained model size is scaled, (ii) the downstream training dataset size is scaled, (iii) the physics parameters are systematically pushed out of distribution, and (iv) how a single model pre-trained on a mixture of different physics problems can be adapted to various downstream applications. We find that-when fine-tuned appropriately-transfer learning can help reach desired accuracy levels with orders of magnitude fewer downstream examples (across different tasks that can even be out-of-distribution) than training from scratch, with consistent behavior across a wide range of downstream examples. We also find that fine-tuning these models yields more performance gains as model size increases, compared to training from scratch on new downstream tasks. These results hold for a broad range of PDE learning tasks. All in all, our results demonstrate the potential of the "pre-train and fine-tune" paradigm for SciML problems, demonstrating a path towards building SciML foundation models. We open-source our code for reproducibility.},
+  pubstate = {preprint}
+}
