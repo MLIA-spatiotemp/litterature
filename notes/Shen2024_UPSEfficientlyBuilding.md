@@ -16,14 +16,14 @@ We present Unified PDE Solvers (UPS), a data- and compute-efficient approach to 
 
 ## Ojective
 
-## Methodology
-<!-- accent on encoding -->
-<!-- transformer ? -->
-
 ## Problem
 <!-- regression / classification / génération ? -->
 <!-- finetuning / adaptive learning ? -->
 <!-- parametric / multiphysics ? -->
+
+## Methodology
+<!-- accent on encoding -->
+<!-- transformer ? -->
 
 ## Experiments
 

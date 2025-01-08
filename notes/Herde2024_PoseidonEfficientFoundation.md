@@ -16,14 +16,14 @@ We introduce Poseidon, a foundation model for learning the solution operators of
 
 ## Ojective
 
-## Methodology
-<!-- accent on encoding -->
-<!-- transformer ? -->
-
 ## Problem
 <!-- regression / classification / génération ? -->
 <!-- finetuning / adaptive learning ? -->
 <!-- parametric / multiphysics ? -->
+
+## Methodology
+<!-- accent on encoding -->
+<!-- transformer ? -->
 
 ## Experiments
 

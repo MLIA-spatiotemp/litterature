@@ -16,14 +16,14 @@ We introduce multiple physics pretraining (MPP), an autoregressive task-agnostic
 
 ## Ojective
 
-## Methodology
-<!-- accent on encoding -->
-<!-- transformer ? -->
-
 ## Problem
 <!-- regression / classification / génération ? -->
 <!-- finetuning / adaptive learning ? -->
 <!-- parametric / multiphysics ? -->
+
+## Methodology
+<!-- accent on encoding -->
+<!-- transformer ? -->
 
 ## Experiments
 

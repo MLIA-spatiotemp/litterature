@@ -16,14 +16,14 @@ Pre-training has been investigated to improve the efficiency and performance of 
 
 ## Ojective
 
-## Methodology
-<!-- accent on encoding -->
-<!-- transformer ? -->
-
 ## Problem
 <!-- regression / classification / génération ? -->
 <!-- finetuning / adaptive learning ? -->
 <!-- parametric / multiphysics ? -->
+
+## Methodology
+<!-- accent on encoding -->
+<!-- transformer ? -->
 
 ## Experiments
 
