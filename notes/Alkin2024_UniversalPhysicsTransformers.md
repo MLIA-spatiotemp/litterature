@@ -17,13 +17,11 @@ Neural operators, serving as physics surrogate models, have recently gained incr
 ## Ojective
 
 ## Methodology
-<!-- particularities - accent on encoding -->
+<!-- accent on encoding -->
 
 ## Problem
 <!-- regression / classification / génération ? -->
 <!-- finetuning / adaptive learning ? -->
-
-### Paradigm
 <!-- parametric / multiphysics ? -->
 
 ## Experiments

@@ -17,13 +17,11 @@ Pre-trained machine learning (ML) models have shown great performance for a wide
 ## Ojective
 
 ## Methodology
-<!-- particularities - accent on encoding -->
+<!-- accent on encoding -->
 
 ## Problem
 <!-- regression / classification / génération ? -->
 <!-- finetuning / adaptive learning ? -->
-
-### Paradigm
 <!-- parametric / multiphysics ? -->
 
 ## Experiments
