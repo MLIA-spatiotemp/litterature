@@ -14,6 +14,28 @@ Pre-trained machine learning (ML) models have shown great performance for a wide
 
 ---
 
+## Ojective
+
+## Methodology
+<!-- particularities - accent on encoding -->
+
+## Problem
+<!-- regression / classification / génération ? -->
+<!-- finetuning / adaptive learning ? -->
+
+### Paradigm
+<!-- parametric / multiphysics ? -->
+
+## Experiments
+
+### Data
+
+### Results
+
+## Limitations
+
+---
+
 Studies the transfer learning and scaling properties of a FNO model over the parameters of 3 PDEs : Poisson, Advection-Diffusion, and Helmoltz.
 
 Constitutes a dataset on these three PDEs with various parameters and initial conditions and shows the capacity of a model pre-trained on a large quantity of trajectories to generalize to OOD equation parameters with only a few examples, as well as its capacity to learn multiple PDEs at once.

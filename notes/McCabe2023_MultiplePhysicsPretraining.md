@@ -14,6 +14,28 @@ We introduce multiple physics pretraining (MPP), an autoregressive task-agnostic
 
 ---
 
+## Ojective
+
+## Methodology
+<!-- particularities - accent on encoding -->
+
+## Problem
+<!-- regression / classification / génération ? -->
+<!-- finetuning / adaptive learning ? -->
+
+### Paradigm
+<!-- parametric / multiphysics ? -->
+
+## Experiments
+
+### Data
+
+### Results
+
+## Limitations
+
+---
+
 Shows that models can learn multiple types of physics, and that it is beneficial to transfer to unseen partially overlapping physics.
 
 It does so with a transformer-based model using axial attention, and an embedding using reversible instance normalization to deal with diverse scales and learned projections for each field. No prior information on the PDE is used by the model.

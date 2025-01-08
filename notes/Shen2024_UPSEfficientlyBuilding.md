@@ -14,6 +14,28 @@ We present Unified PDE Solvers (UPS), a data- and compute-efficient approach to 
 
 ---
 
+## Ojective
+
+## Methodology
+<!-- particularities - accent on encoding -->
+
+## Problem
+<!-- regression / classification / génération ? -->
+<!-- finetuning / adaptive learning ? -->
+
+### Paradigm
+<!-- parametric / multiphysics ? -->
+
+## Experiments
+
+### Data
+
+### Results
+
+## Limitations
+
+---
+
 Proposes a novel method to adapt pretrained LLMs to PDE solving.
 
 Does so by first projecting the input to a common superspace that unifies all dimensions and pysical quantities, passing it through an FNO with <span class="math">$l$</span> channels to obtain <span class="math">$l$</span> tokens that are fed to an LLM along with the PDE information as a text (`[PDE family][coefficients]`), with a final projection to generate the prediction.

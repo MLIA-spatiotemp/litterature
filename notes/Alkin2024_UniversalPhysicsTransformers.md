@@ -14,6 +14,28 @@ Neural operators, serving as physics surrogate models, have recently gained incr
 
 ---
 
+## Ojective
+
+## Methodology
+<!-- particularities - accent on encoding -->
+
+## Problem
+<!-- regression / classification / génération ? -->
+<!-- finetuning / adaptive learning ? -->
+
+### Paradigm
+<!-- parametric / multiphysics ? -->
+
+## Experiments
+
+### Data
+
+### Results
+
+## Limitations
+
+---
+
 Introduces an efficient and unified learning paradigm for a wide range of spatio-temporal problems.
 
 Defines a model as three main blocks :

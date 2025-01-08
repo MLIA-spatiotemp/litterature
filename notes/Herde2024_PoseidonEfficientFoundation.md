@@ -14,6 +14,28 @@ We introduce Poseidon, a foundation model for learning the solution operators of
 
 ---
 
+## Ojective
+
+## Methodology
+<!-- particularities - accent on encoding -->
+
+## Problem
+<!-- regression / classification / génération ? -->
+<!-- finetuning / adaptive learning ? -->
+
+### Paradigm
+<!-- parametric / multiphysics ? -->
+
+## Experiments
+
+### Data
+
+### Results
+
+## Limitations
+
+---
+
 Introduces a new foundation model for physics architecture based on massive Swin Transformers arranged in a U-net manner with ConvNeXt Blocks for skip connections, and a time-conditioned normalization layer.
 
 The model takes as input the initial map <span class="math">$u(0) = a$</span> as well as an arbitrary time <span class="math">$t$</span> and outputs an approximation of the solution <span class="math">$u^*(t)$</span> at this time <span class="math">$t$</span>.

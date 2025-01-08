@@ -14,6 +14,28 @@ Pre-training has been investigated to improve the efficiency and performance of 
 
 ---
 
+## Ojective
+
+## Methodology
+<!-- particularities - accent on encoding -->
+
+## Problem
+<!-- regression / classification / génération ? -->
+<!-- finetuning / adaptive learning ? -->
+
+### Paradigm
+<!-- parametric / multiphysics ? -->
+
+## Experiments
+
+### Data
+
+### Results
+
+## Limitations
+
+---
+
 Presents a denoising strategy for pre-training PDE foundation models. Uses a “Fourier Attention Layer” (even though there is no proper attention mechanism) which is basically FNO with a two-layers neural network in Fourier space instead of only a linear projection.
 
 Trained on PDEBench, PDEArena and CFDBench ; it doesn’t inject prior PDE information in the model and shows transferability to unseen PDEs.
