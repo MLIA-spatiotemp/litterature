@@ -6,7 +6,7 @@
 
 # Towards Foundation Models for Scientific Machine Learning: Characterizing Scaling and Transfer Behavior
 
-## Shashank Subramanian, Peter Harrington, Kurt Keutzer, Wahid Bhimji, Dmitriy Morozov, Michael Mahoney, Amir Gholami
+#### Shashank Subramanian, Peter Harrington, Kurt Keutzer, Wahid Bhimji, Dmitriy Morozov, Michael Mahoney, Amir Gholami
 
 ### Abstract
 
@@ -18,6 +18,7 @@ Pre-trained machine learning (ML) models have shown great performance for a wide
 
 ## Methodology
 <!-- accent on encoding -->
+<!-- transformer ? -->
 
 ## Problem
 <!-- regression / classification / génération ? -->

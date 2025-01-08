@@ -6,7 +6,7 @@
 
 # Universal Physics Transformers: A Framework For Efficiently Scaling Neural Operators
 
-## Benedikt Alkin, Andreas Fürst, Simon Schmid, Lukas Gruber, Markus Holzleitner, Johannes Brandstetter
+#### Benedikt Alkin, Andreas Fürst, Simon Schmid, Lukas Gruber, Markus Holzleitner, Johannes Brandstetter
 
 ### Abstract
 
@@ -18,6 +18,7 @@ Neural operators, serving as physics surrogate models, have recently gained incr
 
 ## Methodology
 <!-- accent on encoding -->
+<!-- transformer ? -->
 
 ## Problem
 <!-- regression / classification / génération ? -->

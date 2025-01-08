@@ -6,7 +6,7 @@
 
 # Poseidon: Efficient Foundation Models for PDEs
 
-## Maximilian Herde, Bogdan Raonić, Tobias Rohner, Roger Käppeli, Roberto Molinaro, Emmanuel de Bézenac, Siddhartha Mishra
+#### Maximilian Herde, Bogdan Raonić, Tobias Rohner, Roger Käppeli, Roberto Molinaro, Emmanuel de Bézenac, Siddhartha Mishra
 
 ### Abstract
 
@@ -18,6 +18,7 @@ We introduce Poseidon, a foundation model for learning the solution operators of
 
 ## Methodology
 <!-- accent on encoding -->
+<!-- transformer ? -->
 
 ## Problem
 <!-- regression / classification / génération ? -->

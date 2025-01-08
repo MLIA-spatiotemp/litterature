@@ -6,7 +6,7 @@
 
 # UPS: Efficiently Building Foundation Models for PDE Solving via Cross-Modal Adaptation
 
-## Junhong Shen, Tanya Marwah, Ameet Talwalkar
+#### Junhong Shen, Tanya Marwah, Ameet Talwalkar
 
 ### Abstract
 
@@ -18,6 +18,7 @@ We present Unified PDE Solvers (UPS), a data- and compute-efficient approach to 
 
 ## Methodology
 <!-- accent on encoding -->
+<!-- transformer ? -->
 
 ## Problem
 <!-- regression / classification / génération ? -->

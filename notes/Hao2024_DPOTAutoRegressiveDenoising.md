@@ -6,7 +6,7 @@
 
 # DPOT: Auto-Regressive Denoising Operator Transformer for Large-Scale PDE Pre-Training
 
-## Zhongkai Hao, Chang Su, Songming Liu, Julius Berner, Chengyang Ying, Hang Su, Anima Anandkumar, Jian Song, Jun Zhu
+#### Zhongkai Hao, Chang Su, Songming Liu, Julius Berner, Chengyang Ying, Hang Su, Anima Anandkumar, Jian Song, Jun Zhu
 
 ### Abstract
 
@@ -18,6 +18,7 @@ Pre-training has been investigated to improve the efficiency and performance of 
 
 ## Methodology
 <!-- accent on encoding -->
+<!-- transformer ? -->
 
 ## Problem
 <!-- regression / classification / génération ? -->
