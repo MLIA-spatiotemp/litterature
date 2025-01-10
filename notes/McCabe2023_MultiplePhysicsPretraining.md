@@ -15,30 +15,49 @@ We introduce multiple physics pretraining (MPP), an autoregressive task-agnostic
 ---
 
 ## Ojective
+The paper introduces Multiple Physics Pretraining (MPP), a task-agnostic pretraining approach for physical surrogate modeling. MPP trains large surrogate models to predict the dynamics of multiple heterogeneous physical systems simultaneously, enabling the learning of broadly useful features. MPP-pretrained transformers match or outperform task-specific baselines without fine-tuning and achieve more accurate predictions on new physics when fine-tuned compared to training from scratch.
 
 ## Problem
 <!-- regression / classification / génération ? -->
 <!-- finetuning / adaptive learning ? -->
 <!-- parametric / multiphysics ? -->
+MPP addresses **regression** problems through **fine-tuning** and operates within a **multi-physics** context (different families of PDEs).
 
 ## Methodology
 <!-- accent on encoding -->
 <!-- transformer ? -->
 
+#### Input
+Inputs consist of initial conditions with dimensions \(a \in \mathbb{R}^{H\times W\times C}\), supporting arbitrary channel counts and resolutions.
+
+#### Encoding
+A reversible instance normalization is applied to unify input magnitudes. Channels are projected into an embedding space of size \(D\) using convolutional filters. Fields from datasets are projected into a shared embedding space using per-field embedding vectors \(e_u\), \(e_v\), and \(e_p\) for state variables \(u(x,t)\), \(v(x,t)\), and \(p(x,t)\), respectively. This setup supports fine-tuning for unseen fields by adding new channels. Resolution space is tokenized using strided convolutions and nonlinearities.
+
+#### Backbone
+The model employs spatiotemporal transformer blocks with temporal self-attention, spatial axial self-attention (independently in the \(x\) and \(y\) axes), and a final MLP layer.
+
+#### Decoding
+Decoding involves reversing the normalization and channel embedding processes via a projection layer.
+
 ## Experiments
 
 ### Data
+The experiments use the full collection of two-dimensional, time-dependent simulations from PDEBench, including four PDE systems: compressible and incompressible Navier-Stokes equations, shallow-water equations, and a 2D Diffusion-Reaction equation. The datasets feature diverse state variables, resolutions, initial/boundary conditions, and simulation parameters.
 
 ### Results
+##### Transfer to Low-Data Domains
+The compressible fluid data was excluded from pretraining to evaluate transfer capabilities. Fine-tuning on specific compressible Navier-Stokes datasets ("Near" and "Far") showed that MPP-pretrained models outperform both training from scratch and VideoMAE, particularly in low-data regimes. "Near" data reflects behavior closer to incompressible simulations, while "Far" data features turbulent conditions unseen during pretraining. MPP models achieve greater accuracy in short-term predictions, with larger benefits on "Far" data.
+
+##### Broader Usage of Pretrained Representations
+Inverse problem tasks were evaluated using the incompressible Navier-Stokes system for:
+
+- Identifying constant forcing terms using trajectory data. MPP reduced RMSE by half compared to training from scratch.
+- Estimating buoyancy parameters using unseen PDEArena data. MPP did not outperform the optimal constant prediction, suggesting limitations in scalar prediction tasks.
+
+Results highlight MPP's strength in dense prediction tasks resembling pretraining, but limited benefits for scalar prediction.
+
+#### Scaling and Efficiency
+Pretraining on MPP required significantly less memory compared to VideoMAE for equivalent input sizes. MPP scales efficiently, with memory usage ranging from 6.7 GB to 59.7 GB depending on the model size.
 
 ## Limitations
-
----
-
-Shows that models can learn multiple types of physics, and that it is beneficial to transfer to unseen partially overlapping physics.
-
-It does so with a transformer-based model using axial attention, and an embedding using reversible instance normalization to deal with diverse scales and learned projections for each field. No prior information on the PDE is used by the model.
-
-It was trained on PDEBench, more specifically on the compressible and incompressible Navier-Stokes, shallow-water, and 2D Diffusion-Reaction equations.
-
-Also shows that Video Transformer models can transfer to physics surprisingly well considering they are trained on video, but have a much larger memory use.
+The architecture assumes uniformly gridded data.
