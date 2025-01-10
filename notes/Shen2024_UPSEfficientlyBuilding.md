@@ -16,31 +16,61 @@ We present Unified PDE Solvers (UPS), a data- and compute-efficient approach to 
 
 ## Ojective
 
+Proposing a novel method to adapt pretrained Large Language Models (LLMs) to PDE solving on varying PDEs.
+
 ## Problem
 <!-- regression / classification / génération ? -->
 <!-- finetuning / adaptive learning ? -->
 <!-- parametric / multiphysics ? -->
 
+The problem is formulated as a **regression** problem.
+
+The model is evaluated on unseen distributions and unseen physics by **zero-shot** and **finetuning**.
+
+The author tackle both the problems of generalizing to **unseen parameters** on a known equation and generalizing to **unseen physics**.
+
 ## Methodology
 <!-- accent on encoding -->
 <!-- transformer ? -->
+
+The inputs are first projected in a shared superspace $\mathbb R^{N\times n^{d_\text{max}}}$, where $N$ is the size of the superset of the physical quantities, $d_\text{max}$ is the maximum dimension across all PDEs, and $n$ is the resolution.
+
+The model first **encodes** the input $u_t$ (a single frame of a history) using **FNO**, followed by a pointwise convolution to generate **textual tokens**. In parallel, the textual information of the PDE (formatted as `[PDE family][coefficients]`) is also converted to textual tokens using a frozen LLM embedder.
+
+All these tokens are then concatenated and added a positional encoding, to then be fed to a pre-trained **LLM** which constitutes the heart of the network.
+
+Finally, the output sequence is average into a vector of shape $\mathbb R^e$, a a linear layer is applied to map it to $\mathbb R^{N\times n_d}$, and the resulting tensor is reshaped to obtain the final prediction $\hat u_{t+1}(x)$.
 
 ## Experiments
 
 ### Data
 
+They train and evaluate their method using **PDEBench**. For training, 7 datasets from different PDE families are combined:
+- Burgers Equation (1D)
+- Advection (1D)
+- Diffusion-Sportion (1D)
+- Shallow-Water (2D)
+- compressible Navier-Stokes (1D and 2D)
+- incompressible Navier-Stokes (2D)
+
+1D and 2D Diffusion-Reaction are explicitly hold out to evaluate the generalization ability of UPS.
+
 ### Results
+
+**In general**, UPS with RoBERTa **ranks first on all 7 datasets** and improves the state-of-the-art by an order of magnitude on many 1D datasets.
+
+UPS **outperforms MPP and DPOT** when used with an LLM of similar size.
+
+Scaling up the LLM backbone's size yields better results.
+
+On unseen physics **the 100-shot results of UPS on 1D datasets are better** than the baselines trained on 9K examples.
+
+UPS also generalizes to PDEs in the same families as the training data but with **different coefficients**.
 
 ## Limitations
 
----
+The method could be validated on a broader range of PDEs with higher-order temporal derivatives or **3D domains**.
 
-Proposes a novel method to adapt pretrained LLMs to PDE solving.
+It seems that the model has more easiness with 1D data than 2D data, as if the transformer in the LLM was easier to adapt to 1D *sequences*.
 
-Does so by first projecting the input to a common superspace that unifies all dimensions and pysical quantities, passing it through an FNO with <span class="math">$l$</span> channels to obtain <span class="math">$l$</span> tokens that are fed to an LLM along with the PDE information as a text (`[PDE family][coefficients]`), with a final projection to generate the prediction.
-
-The training is carefully designed as a two-stage align-then-refine process to first minimize the distance between the tokens distributions.
-
-Shows transferability to unseen coefficients and PDEs with less computation because of the use of a pretrained language model.
-
-Also shows that the pretraining of the Transformer on language is necessary, but it has to be noted that the model has to understand the textual information on the PDE in order to understand the dynamics, as it only has access to one previous timestep <span class="math">$t$</span>.
+To seek a truly general foundation model for PDE, the **types of tasks** that UPS can solve could be extended. Currently, UPS is **only applicable to forward prediction**.
