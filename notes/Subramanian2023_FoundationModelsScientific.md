@@ -43,8 +43,7 @@ The study isn't extended to ViT models.
 
 ### Data
 
-For each problem, $2^{15}$ input-output samples (pairs) of training data, along with $2^{12}$ samples of validation and testing data.
-To genefrate this data, 3 equations are considered, all of which are on the domain $[0,1]^2$ :
+For each problem, $2^{15}$ input-output samples (pairs) of training data, along with $2^{12}$ samples of validation and testing data are generated, depending one the problem, on one or multiple of the 3 following equations, all of which are on the domain $[0,1]^2$ :
 - **SYS-1** - *Poisson* : $-\text{div} K\nabla u = f$
 - **SYS-2** - *Advection-Diffusion* : $-\text{div} K\nabla u + v\nabla u = f$
 - **SYS-3** - *Helmholtz* : $-\Delta u + wu = f$
