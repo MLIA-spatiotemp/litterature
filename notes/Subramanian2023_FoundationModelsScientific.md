@@ -28,15 +28,19 @@ Pre-trained machine learning (ML) models have shown great performance for a wide
 <!-- parametric / multiphysics ? -->
 
 The problem is formulated as a **regression** problem.
+
 The model generalizes to unseen distributions by **finetuning**.
-The authors mainly tackle the problem of **parametric** for unseen distributions, the multiphysics paradigm is only tackled when studying the properties of a single model to learn multiple physics while staying in-distribution, not studying its transfer properties to unseen physics.  
+
+The authors mainly tackle the problem of **parametric** PDEs for unseen distributions, the multiphysics paradigm is only tackled when studying the properties of a single model to learn multiple physics while staying in-distribution, not studying its transfer properties to unseen physics.  
 
 ## Methodology
 <!-- accent on encoding -->
 <!-- transformer ? -->
 
 Uses **FNO** as model.
+
 **No proper encoding** is done, the input of the model is simply a discretized $h \times w$ map of the source and PDE coefficients, constant coefficients being simply replicated on this grid ; though a **per-instance normalization layer** is incorporated in the model to take into account the variability in the norm of the input data.
+
 The study isn't extended to ViT models.
 
 ## Experiments
@@ -74,5 +78,7 @@ For each problem, $2^{15}$ input-output samples (pairs) of training data, along 
 ## Limitations
 
 Doesn't tackle generalization to **unseen physics**.
+
 Doesn't studies scaling properties of **ViT models**.
+
 Is limited to only **3 different physics**. 
