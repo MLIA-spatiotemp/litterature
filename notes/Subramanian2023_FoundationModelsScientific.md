@@ -53,9 +53,11 @@ To genefrate this data, 3 equations are considered, all of which are on the doma
 
 - **Q1** :
     Experiment where the model is pre-trained on *SYS-1(1, 5)* (the eigenvalue of $K$ in $[1, 5]$) and finetuned with a moderate OOD on *SYS-1(5, 10)*.
+    
     → A desired error of 1e-2 needs only about **64 downstream data examples** for fine-tuning, whereas training from scratch requires 8K examples to reach the same accuracy level.
 - **Q2** :
     The model's size is approximately increased 16 folds from 64K to 256M parameters, on the same setup as **Q1** as well as on SYS-2 (pre-training on *SYS-2(0.2,1)*, finetuned on *SYS-2(1,2)*).
+
     → When moving to larger models, both training from scratch and fine-tuning show higher performance that increase with more examples. Fine-tuning the pre-trained model boosts its performance, compared to training from scratch.
 - **Q3** :
     Multiple setups :
@@ -67,6 +69,7 @@ To genefrate this data, 3 equations are considered, all of which are on the doma
     → The performance is improved with few-shot TL up to the point of diminishing returns with large numbers of downstream data examples. For large distributional shifts TL shows relatively high errors, still improves compared to from scratch but doesn't get as much as an advantage.
 - **Q4** :
     Datasets from three PDEs — Poisson’s *SYS1(1,5)*, Advection-Diffusion *SYS-2(0.2,1)*, and Helmholtz *SYS-3(1,10)* — are combined, zero channels being added for coefficients that do not exist when using examples from a specific operator ; this, effectively, serves as selection of the solution operator during the forward pass to predict the solution to the right operator. Evaluated on the same systems, within distribution.
+
     → The same model (pre-trained on three different tasks) is not only useful in all downstream tasks, in both the zero-shot and the fine-tuning settings, but also shows greater performances than the model trained the single physic of the downstream task.
 
 ## Limitations
