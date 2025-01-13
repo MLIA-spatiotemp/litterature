@@ -33,11 +33,19 @@ The author tackle both the problems of generalizing to **unseen parameters** on 
 <!-- accent on encoding -->
 <!-- transformer ? -->
 
-The inputs are first projected in a shared superspace $\mathbb R^{N\times n^{d_\text{max}}}$, where $N$ is the size of the superset of the physical quantities, $d_\text{max}$ is the maximum dimension across all PDEs, and $n$ is the resolution.
+#### Input and Preprocessing
 
-The model first **encodes** the input $u_t$ (a single frame of a history) using **FNO**, followed by a pointwise convolution to generate **textual tokens**. In parallel, the textual information of the PDE (formatted as `[PDE family][coefficients]`) is also converted to textual tokens using a frozen LLM embedder.
+The inputs are projected in a shared superspace $\mathbb R^{N\times n^{d_\text{max}}}$, where $N$ is the size of the superset of the physical quantities, $d_\text{max}$ is the maximum dimension across all PDEs, and $n$ is the resolution, using zero-padding to match the dimensions.
 
-All these tokens are then concatenated and added a positional encoding, to then be fed to a pre-trained **LLM** which constitutes the heart of the network.
+#### Encoding
+
+The model **encodes** the input $u_t$ (a single frame of a history) using **FNO**, followed by a pointwise convolution to generate **textual tokens**. In parallel, the textual information of the PDE (formatted as `[PDE family][coefficients]`) is also converted to textual tokens using a frozen LLM embedder.
+
+#### Backbone
+
+All the previously generated tokens are concatenated and added a positional encoding, to then be fed to a pre-trained **LLM** which constitutes the heart of the network.
+
+#### Decoding
 
 Finally, the output sequence is average into a vector of shape $\mathbb R^e$, a a linear layer is applied to map it to $\mathbb R^{N\times n_d}$, and the resulting tensor is reshaped to obtain the final prediction $\hat u_{t+1}(x)$.
 

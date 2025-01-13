@@ -15,48 +15,70 @@ We introduce Poseidon, a foundation model for learning the solution operators of
 ---
 
 ## Ojective
-The goal of this paper is to introduce **POSEIDON**, a foundation model for learning solution operators of Partial Differential Equations (PDEs). It aims to address how the number of training samples can be significantly reduced by using a pre-trained foundation model, which can generalize to a wide variety of PDEs.
+
+Designing a large transformer-based foundation model for learning time coninuous solution operators of a wide veriety of PDEs.
 
 ## Problem
 <!-- regression / classification / génération ? -->
 <!-- finetuning / adaptive learning ? -->
 <!-- parametric / multiphysics ? -->
-POSEIDON addresses **regression** problems through **fine-tuning** and operates within a **multi-physics** context (different families of PDEs).
+
+POSEIDON addresses **regression** problems through **fine-tuning** and operates within a **multi-physics** context.
 
 ## Methodology
 <!-- accent on encoding -->
 <!-- transformer ? -->
-### Encoding
-- **Input:** The input consists of initial conditions with dimensions \( a \in \mathbb{R}^{128 \times 128 \times n} \), where both the resolution and the number of channels are fixed through preprocessing. The channels are set to the maximum across all training dataset solutions, and if a solution has fewer channels, extra channels are padded with zeros. The resolution is rescaled via interpolation.
-- **Patching:** The input is divided into spatial patches \( a_p \in \mathbb{R}^{p \times p \times n} \).
-- **Embedding:** Each patch is linearly embedded to a vector \( v \in \mathbb{R}^{p \times p \times C} \).
 
-### Backbone
-POSEIDON uses **SwinV2 transformer blocks** as the backbone, implementing a shifted-window multi-head self-attention mechanism. It incorporates logarithmically-generated positional encoding and time-dependent normalization. The architecture follows a **UNet form**, with blocks that reduce resolution while doubling the number of channels (downward blocks) and vice versa (upward blocks). **ConvNext blocks** are used at corresponding levels of the up and down blocks.
+#### Input
 
-### Decoding
+The input consists of initial conditions $u_0 \in \mathbb{R}^{128 \times 128 \times n}$, where both the resolution and the number of channels are fixed through preprocessing.
+
+The channels are set to the maximum across all training dataset solutions, and if a solution has fewer channels, extra channels are padded with zeros. The resolution is rescaled via interpolation.
+
+#### Encoding
+
+- **Patching:** The input is divided into spatial patches $a_p \in \mathbb{R}^{p \times p \times n}$.
+- **Embedding:** Each patch is linearly embedded to a vector $v \in \mathbb{R}^{p \times p \times C}$.
+
+#### Backbone
+
+POSEIDON uses **SwinV2 transformer blocks** as the backbone, implementing a shifted-window multi-head self-attention mechanism. It incorporates positional encoding and time-dependent normalization that uses the $t$ at which we want to predict in the future.
+
+The architecture follows a **UNet shape**, with blocks that reduce resolution while doubling the number of channels (downward blocks) and vice versa (upward blocks). **ConvNext blocks** are used at corresponding levels of the up and down blocks.
+
+#### Decoding
+
 The final features are decoded to recover the output dimensions, and the results are mixed using a convolution operation.
 
-### Foundation Model Training
-The model is pre-trained on diverse PDE operators. During pretraining, a uniform data structure is used for all inputs, even if the underlying problems differ. The objective is to predict the solutions of the PDEs by minimizing errors across all tasks. The pretrained model learns generalized skills for solving a wide range of PDEs, which can be adapted for further fine-tuning or deployment on new problems.
+#### Training
 
-### Fine-tuning
+The model is pre-trained on diverse PDE operators. During pretraining, a uniform data structure is used for all inputs, even if the underlying problems differ. The objective is to predict the solutions of the PDEs by minimizing errors across all tasks.
+
+#### Fine-tuning
+
 The parameters are divided into three groups:
-1. A large set inherited from the pretrained model.
-2. A smaller, task-specific set initialized randomly.
-3. A set tied to time embeddings, also inherited from the pretrained model.
+1. a large set inherited from the pretrained model ;
+2. a smaller, task-specific set initialized randomly ;
+3. a set tied to time embeddings, also inherited from the pretrained model ;
 
 For tasks differing significantly from the pretraining data, the task-specific parameters are trained from scratch, while inherited parameters are fine-tuned with small adjustments. When the task is similar to the pretraining data, all parameters are initialized from the pretrained model and adjusted accordingly. Higher learning rates are used for the task-specific and time-related parameters to enable quicker adaptation.
 
 ## Experiments
 
 ### Data
-POSEIDON is pretrained on a custom dataset containing 6 operators defined in the space-time domain \( [0, 1]^2 \times [0, 1] \). These operators represent PDEs from fluid dynamics, specifically the **compressible Euler equations** and **incompressible Navier-Stokes equations**. The dataset includes approximately 5.11 million training examples derived from 77,840 trajectories sampled at 11 time snapshots.
+
+POSEIDON is pretrained on a custom dataset containing 6 operators defined in the space-time domain $[0, 1]^2 \times [0, 1]$. These operators represent PDEs from two categories :
+- the **compressible Euler equations** for gas dynamics ;
+- **incompressible Navier-Stokes equations** for fluid dynamics ;
+
+The dataset includes approximately 5.11 million training examples derived from 77,840 trajectories sampled at 11 time snapshots.
 
 ### Results
-POSEIDON is evaluated on 15 challenging downstream tasks covering a variety of PDE types and operators. These tasks are out-of-distribution compared to the pretraining data, with many introducing new physical processes or completely new PDEs, such as wave equations and time-independent PDEs.
+
+POSEIDON is evaluated on 15 challenging downstream tasks covering a variety of PDE types and operators. These tasks are out-of-distribution compared to the pretraining data, 9 of these introduce new physical processes or completely new PDEs, such as wave equations and time-independent PDEs.
 POSEIDON demonstrates excellent performance across the 15 downstream tasks (best-performing model on 14 out of 15 tasks), outperforming other models in both **accuracy** and **sample efficiency**. It requires far fewer task-specific samples to achieve the same accuracy as traditional models and generalizes well to **unseen PDEs**, performing strongly on PDEs not included in the pretraining dataset. Its performance scales effectively with both **model size** and **dataset size**.
 
 ## Limitations
+
 - The range of PDEs and underlying data distributions is vast, yet POSEIDON was trained and evaluated on a limited subset. Incorporating time-independent PDEs, such as elliptic PDEs, and a broader range of time scales for time-dependent PDEs could significantly enhance its capabilities.
 - Although focused on Cartesian geometries, POSEIDON demonstrated promise in generalizing to non-Cartesian geometries via masking. Extending POSEIDON to downstream tasks like uncertainty quantification, inverse problems, and PDE-constrained optimization is a natural next step for future research.

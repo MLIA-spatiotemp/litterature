@@ -37,9 +37,17 @@ The authors mainly tackle the problem of **parametric** PDEs for unseen distribu
 <!-- accent on encoding -->
 <!-- transformer ? -->
 
-Uses **FNO** as model.
+#### Input
 
-**No proper encoding** is done, the input of the model is simply a discretized $h \times w$ map of the source and PDE coefficients, constant coefficients being simply replicated on this grid ; though a **per-instance normalization layer** is incorporated in the model to take into account the variability in the norm of the input data.
+The input of the model is simply a discretized $h \times w$ map of the source and PDE coefficients, constant coefficients being simply replicated on this grid
+
+#### Encoding
+
+**No proper encoding** is done, though a **per-instance normalization layer** is incorporated in the model to take into account the variability in the norm of the input data.
+
+#### Backbone
+
+Uses **FNO** as model (with the afformentioned per-instance normalization layer modification).
 
 The study isn't extended to ViT models.
 
