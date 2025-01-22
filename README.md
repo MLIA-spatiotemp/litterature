@@ -9,3 +9,9 @@ Literature resources for spatiotemp
 - [DPOT: Auto-Regressive Denoising Operator Transformer for Large-Scale PDE Pre-Training](/notes/Hao2024_DPOTAutoRegressiveDenoising.md) - [arxiv.org/abs/2403.03542v4](https://arxiv.org/abs/2403.03542v4)
 - [Multiple Physics Pretraining for Physical Surrogate Models](/notes/McCabe2023_MultiplePhysicsPretraining.md) - [arxiv.org/abs/2310.02994](http://arxiv.org/abs/2310.02994)
 - [Towards Foundation Models for Scientific Machine Learning: Characterizing Scaling and Transfer Behavior](/notes/Subramanian2023_FoundationModelsScientific.md) - [arxiv.org/abs/2306.00258](http://arxiv.org/abs/2306.00258)
+
+## Team
+
+- [GEPS: Boosting Generalization in Parametric PDE Neural Solvers through Adaptive Conditioning](/notes/Koupai2024_GEPSBoostingGeneralization.md)
+- [Zebra: In-Context and Generative Pretraining for Solving Parametric PDEs](/notes/Serrano2024_ZebraInContextGenerative.md)
+- [AROMA: Preserving Spatial Structure for Latent PDE Modeling with Local Neural Fields](/notes/Serrano2024_AROMAPreservingSpatial.md)
