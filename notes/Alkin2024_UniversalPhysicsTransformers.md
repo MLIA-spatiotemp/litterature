@@ -88,7 +88,7 @@ The latent rollout achieves on par results to autoregressively unrolling via the
 
 #### Data
 
-The capacity of the model to be reframed for Lagrangian dynamics is explored n the Taylor-Green vortex dataset in three dimensions (**TGV3D**), where the inputs are the two consecutive velocities of the particles in the dataset at a given timestep $\{t − 1 , t\}$, and the respective particle positions, and the outputs are the two consecutive velocities at a later timesteps $\{t + \Delta T − 1, t + \Delta T \}$.
+The capacity of the model to be reframed for Lagrangian dynamics is explored in the Taylor-Green vortex dataset in three dimensions (**TGV3D**), where the inputs are the two consecutive velocities of the particles in the dataset at a given timestep $\{t − 1 , t\}$, and the respective particle positions, and the outputs are the two consecutive velocities at a later timesteps $\{t + \Delta T − 1, t + \Delta T \}$.
 
 #### Results
 
