@@ -10,16 +10,7 @@ Literature resources for spatiotemp
 - [Multiple Physics Pretraining for Physical Surrogate Models](/notes/McCabe2023_MultiplePhysicsPretraining.md) - [arxiv.org/abs/2310.02994](http://arxiv.org/abs/2310.02994)
 - [Towards Foundation Models for Scientific Machine Learning: Characterizing Scaling and Transfer Behavior](/notes/Subramanian2023_FoundationModelsScientific.md) - [arxiv.org/abs/2306.00258](http://arxiv.org/abs/2306.00258)
 
-### Comparison
-
-| paper    | problem    | OOD                   | range         | dims     | geometry  | encoding                                                                                                    | backbone                              | data                                                                 | beats          |
-| -------- | ---------- | --------------------- | ------------- | -------- | --------- | ----------------------------------------------------------------------------------------------------------- | ------------------------------------- | -------------------------------------------------------------------- | -------------- |
-| Poseidon | regression | finetuning            | multi-physics | 2D       | regular   | patched, embedded                                                                                           | ViT (SwinV2) in a UNet shape          | Euler, Navier-Stokes                                                 | MPP            |
-| UPT      | regression | none                  | none          | 2D (3D?) | irregular | embedding, message passing, transformer, perceiver                                                          | transformer                           | ShapeNet-Car, Navier-Stokes, TGV3D (Lagrangian formulation)          | FNO            |
-| UPS      | regression | zero-shot, finetuning | multi-physics | 1D, 2D   | regular   | projection into a superspace through zero-padding, FNO, tokenized along with PDE description text tokenized | pre-trained LLM                       | Burgers, Advection, Diffusion-Sportion, Shallow-Water, Navier-Stokes | DPOT, MPP, FNO |
-| DPOT     | regression | finetuning            | multi-physics | 2D       | irregular | resolutions unified through interpolation, mask for irregular grids, patched, temporal aggregation          | FNO (on steroids)                     | PDEBench, PDEArena , CFDBench                                        | MPP, FNO       |
-| MPP      | regression | zero-shot, finetuning | multi-physics | 2D       | regular   | ReVIN, shared embedding space for each field, patched                                                       | ViT (axial attention)                 | PDEBench                                                             |                |
-| FNO      | regression | finetuning            | parametric    | 2D       | regular   | none                                                                                                        | FNO (with per-instance normalization) | Poisson, Advection-Diffusion, Helmoltz                               |                |
+→ [Comparison](/tables/foundation_models_comparison.csv)
 
 ## Team
 
