@@ -1,6 +1,16 @@
 # spatiotemp_bib
 Literature resources for spatiotemp
 
+## Questions
+
+- a quoi servent les foundations models ?
+  - apprendre des primitives? (spatial / dynamique)
+  - modeliser plusieurs dynamiques?
+- quelle quantités de données ?
+- generalisation (in/out distribution)
+- qualité des encodages ?
+- adaptation / in context / finetuning
+
 ## Foundation Models
 
 - [Poseidon: Efficient Foundation Models for PDEs](/notes/Herde2024_PoseidonEfficientFoundation.md) - [arxiv.org/abs/2405.19101](http://arxiv.org/abs/2405.19101)
