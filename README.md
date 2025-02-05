@@ -10,7 +10,7 @@ Literature resources for spatiotemp
 - [Multiple Physics Pretraining for Physical Surrogate Models](/papers/McCabe2023_MultiplePhysicsPretraining.md) - [arxiv.org/abs/2310.02994](http://arxiv.org/abs/2310.02994)
 - [Towards Foundation Models for Scientific Machine Learning: Characterizing Scaling and Transfer Behavior](/papers/Subramanian2023_FoundationModelsScientific.md) - [arxiv.org/abs/2306.00258](http://arxiv.org/abs/2306.00258)
 
-→ [Comparison](/tables/foundation_models_comparison.csv)
+→ [Synthesis](/notes/foundation_models.md)
 
 ## Team
 
