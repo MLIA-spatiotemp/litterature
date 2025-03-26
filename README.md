@@ -1,4 +1,4 @@
-# spatiotemp_bib
+# Litterature
 Literature resources for spatiotemp
 
 ## Foundation Models
