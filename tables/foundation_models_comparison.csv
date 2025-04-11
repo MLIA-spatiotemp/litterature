@@ -1,5 +1,5 @@
 "paper", "problem", "OOD", "range", "input", "geometry", "encoding", "backbone", "data", "amount", "model params", "beats"
-"BCAT", "regression", "none", "none", "2D", "regular", "patched, embedded - per frame", "transformer (GPT-2/Llama)", "PDEBench, PDEArena, CFDBench", "amount", "156M", "MPP, DPOT"
+"BCAT", "regression", "none", "none", "2D", "regular", "patched, embedded - per frame", "transformer (GPT-2/Llama)", "PDEBench, PDEArena, CFDBench", "", "156M", "MPP, DPOT"
 "MAE-PDE", "regression, classification", "finetuning", "multi-physics", "1D, 2D - multiple timesteps", "regular", "patched, embedded", "ViT", "(KdV)-Burgers, Heat, Advection", "1e+5", "", "FNO, U-Net"
 "CODA-NO", "regression", "few-shots", "multi-physics", "2D - 1 frame", "irregular", "learned positional encoding + physical quantity to form physical tokens through GNO ; passed through a tgransformer", "transformer", "fluid-structure interaction, Rayleigh-Bénard convection, PDEBench", "", "", "DeepONet, GINO"
 "ICON", "regression", "zero-shot", "multi-physics", "1D - multiple timesteps", "irregular", "token for each point of each example pair and of the sequence of interest ; passed through a transformer", "transformer", "12 ODEs", "1e+6", "", ""
